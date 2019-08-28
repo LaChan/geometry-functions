@@ -19,6 +19,10 @@ void testSuite::runTestSuite()
 	TVector3 testResultant3cp;
 	TVector3 testResultant3n;
 	TVector3 testResultant3p;
+	T3DLine testLineA;
+	TPlane testPlaneA;
+	TCircle testCircleA;
+	TCircle testCircleB;
 
 	testVector2a.x = 3.0;
 	testVector2a.y = 4.0;
@@ -59,73 +63,106 @@ void testSuite::runTestSuite()
 	testResultant3p.y = 2.52173;
 	testResultant3p.z = 4.28695;
 
-	
+	testLineA.v3q.x = 3.0;
+	testLineA.v3q.y = 4.0;
+	testLineA.v3q.z = 5.5;
+
+	testLineA.v3v.x = 6.0;
+	testLineA.v3v.y = 9.0;
+	testLineA.v3v.z = 7.3;
+
+	testPlaneA.normal.x = 4.0;
+	testPlaneA.normal.y = 2.0;
+	testPlaneA.normal.z = 5.0;
+
+	testPlaneA.point.x = 7.0;
+	testPlaneA.point.y = 8.0;
+	testPlaneA.point.z = 9.0;
+
+	testCircleA.center.x = 5.0;
+	testCircleA.center.y = 4.0;
+	testCircleA.radius = 4.0;
+
+	testCircleB.center.x = 3.0;
+	testCircleB.center.y = 7.0;
+	testCircleB.radius = 8.0;
+
 	cout << "Welcome to the MAT101 Geometry Tester." << endl;
 	cout << "Current Tests Run: " << testCount << endl;
-	cout << "Running Vector Equals function" << endl;
 
 	Equals(testVector3a, testVector3b);
 	testCount += 1;
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
-	
-	cout << "\nRunning Vector Add function" << endl;
 
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
+	
 	Add(testVector3a, testVector3b, testResultant3);
 	testCount += 1;
 
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
 
 	Subtract(testVector3a, testVector3b, testResultant3sub);
 	testCount += 1;
 
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
 
 	ScaleVector(testVector3a, scalar, testResultant3scalar);
 	testCount += 1;
 
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
 
 	Magnitude(testVector3a);
 	testCount += 1;
 
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
 
 	DotProduct(testVector3a, testVector3b);
 	testCount += 1;
 
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
 
 	CrossProduct(testVector3a, testVector3b, testResultant3cp);
 	testCount += 1;
 
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
 
 	Normalise(testVector3a, testResultant3n);
 	testCount += 1;
 
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
 
 	Projection(testVector3a, testVector3b, testResultant3p);
 	testCount += 1;
 
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
 
 	ComputeAngleBetween(testVector2a, testVector2b);
+	testCount += 1;
+
+	cout << "\nTest Complete" << endl;
+	cout << "\nCurrent Tests Run: " << testCount << endl;
+
+	ComputeAngleBetween(testVector3a, testVector3b);
 	testCount += 1;
 
 	cout << "Test Complete" << endl;
 	cout << "Current Tests Run: " << testCount << endl;
 
-	ComputeAngleBetween(testVector3a, testVector3b);
+	ComputeDistancePointToLine(testLineA, testVector3a);
+	testCount += 1;
+
+	cout << "Test Complete" << endl;
+	cout << "Current Tests Run: " << testCount << endl;
+
+	ComputeDistancePointToPlane(testPlaneA, testVector3a);
 	testCount += 1;
 
 	cout << "Test Complete" << endl;

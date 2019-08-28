@@ -1,4 +1,4 @@
-#include "geometry.h"
+﻿#include "geometry.h"
 #include <iostream>
 #include <cmath>
 
@@ -207,4 +207,62 @@ float ComputeAngleBetween(const TVector3& _vectorA, const TVector3& _vectorB) {
 	cout << "\nThe calculated result was:" << angleBetween << endl;
 
 	return angleBetween;
+}
+
+float ComputeDistancePointToLine(const T3DLine& _line, const TVector3& _point) {
+
+	cout << "\nThis function computes the distance between a point and a line." << endl;
+
+	//calculate the cross product of a and b
+	TVector3 crossProduct;
+	crossProduct.x = ((_line.v3q.y * _point.z) - (_line.v3q.z * _point.y));
+	crossProduct.y = ((_line.v3q.z * _point.x) - (_line.v3q.x * _point.z));
+	crossProduct.z = ((_line.v3q.x * _point.y) - (_line.v3q.y * _point.x));
+
+	//find magnitude of cross product
+	float xProductMag = sqrt(pow(crossProduct.x, 2) + pow(crossProduct.y, 2) + pow(crossProduct.z, 2));
+
+	//find magnitude of just a
+	float pointMag = sqrt(pow(_line.v3q.x, 2) + pow(_line.v3q.y, 2) + pow(_line.v3q.z, 2));
+
+	//calc distance
+	float distance = xProductMag / pointMag;
+
+	cout << "\nDistance calculated: " << distance << endl;
+
+	return distance;
+}
+
+float ComputeDistancePointToPlane(const TPlane& _plane, const TVector3& _point) {
+
+	cout << "\nThis function computes the shortest distance between a point and a plane." << endl;
+
+	//find the difference between Point and Point on plane
+	TVector3 vecBetweenPoints;
+	
+	vecBetweenPoints.x = (_point.x - _plane.point.x);
+	vecBetweenPoints.y = (_point.y - _plane.point.y);
+	vecBetweenPoints.z = (_point.z - _plane.point.z);
+
+	//calculate magnitude of normal vector
+	float normalMag	= sqrt(pow(_plane.normal.x, 2) + pow(_plane.normal.y, 2) + pow(_plane.normal.z, 2));
+
+	//calculate dot product of vector between the points and plane's normal vector
+	float dotProductNB = ((_plane.normal.x * vecBetweenPoints.x)
+		+ (_plane.normal.y * vecBetweenPoints.y) 
+		+ (_plane.normal.z * vecBetweenPoints.z));
+
+	float distaneP2Plane = dotProductNB / normalMag;
+
+	cout << "\nDistance calculated: " << distaneP2Plane << endl;
+
+	return distaneP2Plane;
+
+}
+
+float ComputeDistanceCircleToCircle(const TCircle& _circle1, const TCircle& _circle2) {
+
+	float distanceC2C = pow((_circle2.center.x − _circle1.center.x),2) +
+		pow((_circle2.center.y − _circle1.center.y),2)
+		- (_circle2.radius + _circle1.radius);
 }
