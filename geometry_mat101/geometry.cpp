@@ -164,11 +164,14 @@ TVector3& Projection(const TVector3& _vectorA, const TVector3& _vectorB, TVector
 	cout << "\nThis function computes the Projection of the first vector onto the second passed to the function." << endl;
 	cout << "And then compares the resultant to that supplied." << endl;
 
-	projectionVec.x = (vecAMagnitude / (pow(vecDotProduct, 2))) * _vectorA.x;
-	projectionVec.y = (vecAMagnitude / (pow(vecDotProduct, 2))) * _vectorA.y;
-	projectionVec.z = (vecAMagnitude / (pow(vecDotProduct, 2))) * _vectorA.z;
+	projectionVec.x = (vecDotProduct / pow(vecAMagnitude, 2)) * _vectorA.x;
+	projectionVec.y = (vecDotProduct / pow(vecAMagnitude, 2)) * _vectorA.y;
+	projectionVec.z = (vecDotProduct / pow(vecAMagnitude, 2)) * _vectorA.z;
 
-	if (((projectionVec.x < FLT_EPSILON) == (_resultant.x < FLT_EPSILON)) && ((projectionVec.y < FLT_EPSILON) == (_resultant.y < FLT_EPSILON)) && ((projectionVec.z < FLT_EPSILON) == (_resultant.z < FLT_EPSILON))) {
+	cout << "\nThe calculated result was: [" << projectionVec.x << ", " << projectionVec.y << ", " << projectionVec.z << "]" << endl;
+	cout << "\nThe supplied result was: [" << _resultant.x << ", " << _resultant.y << ", " << _resultant.z << "]" << endl;
+
+	if (((projectionVec.x) == (_resultant.x < FLT_EPSILON)) && ((projectionVec.y) == (_resultant.y < FLT_EPSILON)) && ((projectionVec.z) == (_resultant.z < FLT_EPSILON))) {
 		cout << "\nVector Resultants Match." << endl;
 	}
 	else {
