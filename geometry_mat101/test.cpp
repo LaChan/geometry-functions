@@ -167,6 +167,12 @@ void testSuite::runTestSuite()
 
 	cout << "Test Complete" << endl;
 	cout << "Current Tests Run: " << testCount << endl;
+
+	ComputeDistanceCircleToCircle(testCircleA, testCircleB);
+	testCount += 1;
+
+	cout << "Test Complete" << endl;
+	cout << "Current Tests Run: " << testCount << endl;
 }
 
 testSuite::testSuite()

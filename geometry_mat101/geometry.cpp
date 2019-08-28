@@ -262,7 +262,11 @@ float ComputeDistancePointToPlane(const TPlane& _plane, const TVector3& _point) 
 
 float ComputeDistanceCircleToCircle(const TCircle& _circle1, const TCircle& _circle2) {
 
-	float distanceC2C = pow((_circle2.center.x − _circle1.center.x),2) +
-		pow((_circle2.center.y − _circle1.center.y),2)
-		- (_circle2.radius + _circle1.radius);
+	cout << "\nThis function computes the shortest distance between the edges of two circles." << endl;
+	
+	float distanceC2C = sqrt(pow((_circle2.center.x - _circle1.center.x), 2) + pow((_circle2.center.y - _circle1.center.y), 2)) - (_circle2.radius + _circle1.radius);
+
+	cout << "\nDistance calculated: " << distanceC2C << endl;
+
+	return distanceC2C;
 }
