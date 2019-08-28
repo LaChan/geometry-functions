@@ -9,6 +9,8 @@ void testSuite::runTestSuite()
 {
 	int testCount = 0;
 	
+	TVector2 testVector2a;
+	TVector2 testVector2b;
 	TVector3 testVector3a;
 	TVector3 testVector3b;
 	TVector3 testResultant3;
@@ -17,6 +19,12 @@ void testSuite::runTestSuite()
 	TVector3 testResultant3cp;
 	TVector3 testResultant3n;
 	TVector3 testResultant3p;
+
+	testVector2a.x = 3.0;
+	testVector2a.y = 4.0;
+
+	testVector2b.x = 4.5;
+	testVector2b.y = 3.6;
 
 	testVector3a.x = 1.0;
 	testVector3a.y = 2.0;
@@ -106,6 +114,18 @@ void testSuite::runTestSuite()
 	cout << "Current Tests Run: " << testCount << endl;
 
 	Projection(testVector3a, testVector3b, testResultant3p);
+	testCount += 1;
+
+	cout << "Test Complete" << endl;
+	cout << "Current Tests Run: " << testCount << endl;
+
+	ComputeAngleBetween(testVector2a, testVector2b);
+	testCount += 1;
+
+	cout << "Test Complete" << endl;
+	cout << "Current Tests Run: " << testCount << endl;
+
+	ComputeAngleBetween(testVector3a, testVector3b);
 	testCount += 1;
 
 	cout << "Test Complete" << endl;

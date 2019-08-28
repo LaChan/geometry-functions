@@ -171,7 +171,7 @@ TVector3& Projection(const TVector3& _vectorA, const TVector3& _vectorB, TVector
 	cout << "\nThe calculated result was: [" << projectionVec.x << ", " << projectionVec.y << ", " << projectionVec.z << "]" << endl;
 	cout << "\nThe supplied result was: [" << _resultant.x << ", " << _resultant.y << ", " << _resultant.z << "]" << endl;
 
-	if (((projectionVec.x) == (_resultant.x < FLT_EPSILON)) && ((projectionVec.y) == (_resultant.y < FLT_EPSILON)) && ((projectionVec.z) == (_resultant.z < FLT_EPSILON))) {
+	if (((projectionVec.x < FLT_EPSILON) == (_resultant.x < FLT_EPSILON)) && ((projectionVec.y < FLT_EPSILON) == (_resultant.y < FLT_EPSILON)) && ((projectionVec.z < FLT_EPSILON) == (_resultant.z < FLT_EPSILON))) {
 		cout << "\nVector Resultants Match." << endl;
 	}
 	else {
@@ -179,4 +179,32 @@ TVector3& Projection(const TVector3& _vectorA, const TVector3& _vectorB, TVector
 	}
 
 	return projectionVec;
+}
+
+float ComputeAngleBetween(const TVector2& _vectorA, const TVector2& _vectorB) {
+
+	cout << "\nThis function computes the angle between two 2D vectors passed to the function." << endl;
+
+	float angleBetweenDotProduct = ((_vectorA.x * _vectorB.x) + (_vectorA.y * _vectorB.y));
+	float angleBetweenMagnitudeA = sqrt(pow(_vectorA.x, 2) + pow(_vectorA.y, 2));
+	float angleBetweenMagnitudeB = sqrt(pow(_vectorB.x, 2) + pow(_vectorB.y, 2));
+
+	float angleBetween = (angleBetweenDotProduct / (angleBetweenMagnitudeA * angleBetweenMagnitudeB));
+	cout << "\nThe calculated result was:" << angleBetween << endl;
+
+	return angleBetween;
+}
+
+float ComputeAngleBetween(const TVector3& _vectorA, const TVector3& _vectorB) {
+
+	cout << "\nThis function computes the angle between two 3D vectors passed to the function." << endl;
+
+	float angleBetweenDotProduct = ((_vectorA.x * _vectorB.x) + (_vectorA.y * _vectorB.y)+ (_vectorA.z * _vectorB.z));
+	float angleBetweenMagnitudeA = sqrt((pow(_vectorA.x, 2) + pow(_vectorA.y, 2) + pow(_vectorA.z, 2)));
+	float angleBetweenMagnitudeB = sqrt((pow(_vectorB.x, 2) + pow(_vectorB.y, 2) + pow(_vectorB.z, 2)));
+
+	float angleBetween = (angleBetweenDotProduct / (angleBetweenMagnitudeA * angleBetweenMagnitudeB));
+	cout << "\nThe calculated result was:" << angleBetween << endl;
+
+	return angleBetween;
 }
