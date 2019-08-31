@@ -6,16 +6,16 @@ using namespace std;
 
 bool Equals(const TVector3& _vectorA, const TVector3& _vectorB) {
 
-	cout << "This function compares two vectors to determine if they are equal." << endl;
-	cout << "First Vector Supplied: [" << _vectorA.x << ", " << _vectorA.y << ", " << _vectorA.z << "]" << endl;
-	cout << "First Vector Supplied: [" << _vectorB.x << ", " << _vectorB.y << ", " << _vectorB.z << "]" << endl;
+	cout << "\nThis function compares two vectors to determine if they are equal." << endl;
+	cout << "\nFirst Vector Supplied: [" << _vectorA.x << ", " << _vectorA.y << ", " << _vectorA.z << "]" << endl;
+	cout << "\nSecond Vector Supplied: [" << _vectorB.x << ", " << _vectorB.y << ", " << _vectorB.z << "]" << endl;
 
 	if ((_vectorA.x == _vectorB.x) && (_vectorA.y == _vectorB.y) && ((_vectorA.z < FLT_EPSILON) == (_vectorB.z < FLT_EPSILON))) {
 		cout << "\nVectors are equal." << endl;
 		return true;
 	}
 	else {
-		cout << "Vectors are not equal." << endl;
+		cout << "\nVectors are not equal." << endl;
 		return false;
 	}
 }
@@ -33,10 +33,10 @@ TVector3& Add(const TVector3& _vectorA, const TVector3& _vectorB, TVector3& _res
 	cout << "\nThe supplied result was: [" << _resultant.x << ", " << _resultant.y << ", " << _resultant.z << "]" << endl;
 
 	if ((calcResult.x == _resultant.x) && (calcResult.y == _resultant.y) && ((calcResult.z < FLT_EPSILON) == (_resultant.z < FLT_EPSILON)) ){
-		cout << "Vector Resultants Match." << endl;
+		cout << "\nVector Resultants Match." << endl;
 	}
 	else {
-		cout << "Resultant vectors mismatch. Check inputs (or check this function)." << endl;
+		cout << "\nResultant vectors mismatch. Check inputs (or check this function)." << endl;
 	}
 	return calcResult;
 }
@@ -54,10 +54,10 @@ TVector3& Subtract(const TVector3& _vectorA, const TVector3& _vectorB, TVector3&
 	cout << "\nThe supplied result was: [" << _resultant.x << ", " << _resultant.y << ", " << _resultant.z << "]" << endl;
 
 	if ((calcResult.x == _resultant.x) && (calcResult.y == _resultant.y) && ((calcResult.z < FLT_EPSILON) == (_resultant.z < FLT_EPSILON))) {
-		cout << "Vector Resultants Match." << endl;
+		cout << "\nVector Resultants Match." << endl;
 	}
 	else {
-		cout << "Resultant vectors mismatch. Check inputs (or check this function)." << endl;
+		cout << "\nResultant vectors mismatch. Check inputs (or check this function)." << endl;
 	}
 	return calcResult;
 }
@@ -264,9 +264,53 @@ float ComputeDistanceCircleToCircle(const TCircle& _circle1, const TCircle& _cir
 
 	cout << "\nThis function computes the shortest distance between the edges of two circles." << endl;
 	
+	//calculate distance between centre of circles, then subctract the radius
 	float distanceC2C = sqrt(pow((_circle2.center.x - _circle1.center.x), 2) + pow((_circle2.center.y - _circle1.center.y), 2)) - (_circle2.radius + _circle1.radius);
 
 	cout << "\nDistance calculated: " << distanceC2C << endl;
 
 	return distanceC2C;
+}
+
+float ComputeDistanceCircleToTriangle(const TCircle& _circle, const TTriangle2& _triangle) {
+
+	cout << "\nThis function computes the distance between the centre of a given circle and a triangle." << endl;
+	//define variables
+	TVector2 centroid;
+	centroid.x = 0.0;
+	centroid.y = 0.0;
+
+	// find centroid of triangle
+	centroid.x = (_triangle.p1.x + _triangle.p2.x + _triangle.p3.x) / 3;
+	centroid.y = (_triangle.p1.y + _triangle.p2.y + _triangle.p3.y) / 3;
+
+	float distanceC2T = sqrt(pow((_circle.center.x - centroid.x), 2) + pow((_circle.center.y - centroid.y), 2));
+
+	return distanceC2T;
+}
+
+TVector3& FindTriangleNormal(const TTriangle3& _triangle, TVector3& _normal) {
+	
+	cout << "\nThis function computes the normal vector of a given triangle." << endl;
+
+	TVector3 U;
+	TVector3 V;
+
+	U.x = (_triangle.p2.x - _triangle.p1.x);
+	U.y = (_triangle.p2.y - _triangle.p1.y);
+	U.z = (_triangle.p2.z - _triangle.p1.z);
+	V.x = (_triangle.p3.x - _triangle.p1.x);
+	V.y = (_triangle.p3.y - _triangle.p1.y);
+	V.z = (_triangle.p3.z - _triangle.p1.z);
+	
+	TVector3 triNormal;
+	
+	triNormal.x = (U.y * V.z) - (U.z * V.y);
+	triNormal.y = (U.z * V.x) - (U.x * V.z);
+	triNormal.z = (U.x * V.y) - (U.y * V.x);
+
+	cout << "\nThe supplied result was: [" << _normal.x << ", " << _normal.y << ", " << _normal.z << "]" << endl;
+	cout << "\nThe calculated result was: [" << triNormal.x << ", " << triNormal.y << ", " << triNormal.z << "]" << endl;
+	
+	return triNormal;
 }

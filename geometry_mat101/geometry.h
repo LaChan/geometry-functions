@@ -36,7 +36,7 @@ struct TVector3
 struct TTriangle3
 {
 	TVector3 p1;
-	TVector3 p2;
+	TVector3 p2;	
 	TVector3 p3;
 };
 

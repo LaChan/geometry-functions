@@ -19,10 +19,16 @@ void testSuite::runTestSuite()
 	TVector3 testResultant3cp;
 	TVector3 testResultant3n;
 	TVector3 testResultant3p;
+	TVector3 testResultant3i;
+	TVector3 testTriNormal;
 	T3DLine testLineA;
+	T3DLine testLineB;
 	TPlane testPlaneA;
 	TCircle testCircleA;
 	TCircle testCircleB;
+	TTriangle2 testTriA;
+	TTriangle2 testTriB;
+	TTriangle3 testTriC;
 
 	testVector2a.x = 3.0;
 	testVector2a.y = 4.0;
@@ -63,6 +69,10 @@ void testSuite::runTestSuite()
 	testResultant3p.y = 2.52173;
 	testResultant3p.z = 4.28695;
 
+	testResultant3i.x = 0;
+	testResultant3i.y = 0;
+	testResultant3i.z = 0;
+
 	testLineA.v3q.x = 3.0;
 	testLineA.v3q.y = 4.0;
 	testLineA.v3q.z = 5.5;
@@ -70,6 +80,14 @@ void testSuite::runTestSuite()
 	testLineA.v3v.x = 6.0;
 	testLineA.v3v.y = 9.0;
 	testLineA.v3v.z = 7.3;
+
+	testLineB.v3q.x = 5.0;
+	testLineB.v3q.y = 4.0;
+	testLineB.v3q.z = 3.5;
+
+	testLineB.v3v.x = 7.0;
+	testLineB.v3v.y = 9.0;
+	testLineB.v3v.z = 6.3;
 
 	testPlaneA.normal.x = 4.0;
 	testPlaneA.normal.y = 2.0;
@@ -86,6 +104,34 @@ void testSuite::runTestSuite()
 	testCircleB.center.x = 3.0;
 	testCircleB.center.y = 7.0;
 	testCircleB.radius = 8.0;
+
+	testTriA.p1.x = 4.0;
+	testTriA.p1.y = 2.0;
+
+	testTriA.p2.x = 3.0;
+	testTriA.p2.y = 7.0;
+
+	testTriB.p1.x = 8.0;
+	testTriB.p1.y = 4.0;
+
+	testTriB.p2.x = 8.0;
+	testTriB.p2.y = 2.0;
+	
+	testTriC.p1.x = 5.0;
+	testTriC.p1.y = 7.0;
+	testTriC.p1.z = 3.0;
+
+	testTriC.p2.x = 6.0;
+	testTriC.p2.y = 3.0;
+	testTriC.p2.z = 4.0;
+
+	testTriC.p3.x = 7.0;
+	testTriC.p3.y = 6.0;
+	testTriC.p3.z = 8.0;
+
+	testTriNormal.x = -19;
+	testTriNormal.y = -3;
+	testTriNormal.z = 7;
 
 	cout << "Welcome to the MAT101 Geometry Tester." << endl;
 	cout << "Current Tests Run: " << testCount << endl;
@@ -169,6 +215,18 @@ void testSuite::runTestSuite()
 	cout << "Current Tests Run: " << testCount << endl;
 
 	ComputeDistanceCircleToCircle(testCircleA, testCircleB);
+	testCount += 1;
+
+	cout << "Test Complete" << endl;
+	cout << "Current Tests Run: " << testCount << endl;
+
+	ComputeDistanceCircleToTriangle(testCircleA, testTriA);
+	testCount += 1;
+
+	cout << "Test Complete" << endl;
+	cout << "Current Tests Run: " << testCount << endl;
+
+	FindTriangleNormal(testTriC, testTriNormal);
 	testCount += 1;
 
 	cout << "Test Complete" << endl;
