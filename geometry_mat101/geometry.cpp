@@ -5,6 +5,18 @@
 using namespace std;
 
 bool Equals(const TVector3& _vectorA, const TVector3& _vectorB) {
+	
+	/*********************** * 
+	
+	name of the function: Equals - Compare 3D Vector Equality
+	
+	@author: Lachlan Hope
+	
+	@parameter: Takes two 3D Vectors, data type defined in the supplied header file struct(s).
+	
+	@return: returns boolean indicating vector equality
+	
+	********************/
 
 	cout << "\nThis function compares two vectors to determine if they are equal." << endl;
 	cout << "\nFirst Vector Supplied: [" << _vectorA.x << ", " << _vectorA.y << ", " << _vectorA.z << "]" << endl;
@@ -22,6 +34,20 @@ bool Equals(const TVector3& _vectorA, const TVector3& _vectorB) {
 
 TVector3& Add(const TVector3& _vectorA, const TVector3& _vectorB, TVector3& _resultant)
 {
+
+/*********************** *
+
+name of the function: Add - Adds two 3D Vectors
+
+@author: Lachlan Hope
+
+@parameter: Takes two 3D Vectors and a resultant vector, of TVector3 type defined by struct(s) in header file.
+
+@return: returns resultant of vector addition, compared with supplied value.
+
+********************/
+
+
 	TVector3 calcResult;
 	calcResult.x = (_vectorA.x + _vectorB.x);
 	calcResult.y = (_vectorA.y + _vectorB.y);
@@ -43,6 +69,19 @@ TVector3& Add(const TVector3& _vectorA, const TVector3& _vectorB, TVector3& _res
 
 TVector3& Subtract(const TVector3& _vectorA, const TVector3& _vectorB, TVector3& _resultant)
 {
+
+/*********************** *
+
+name of the function: Subtract - Subtracts two 3D Vectors
+
+@author: Lachlan Hope
+
+@parameter: Takes two 3D Vectors and a resultant vector, of TVector3 type defined by struct(s) in header file.
+
+@return: returns resultant of vector subtraction, compared with supplied value.
+
+********************/
+
 	TVector3 calcResult;
 	calcResult.x = (_vectorA.x - _vectorB.x);
 	calcResult.y = (_vectorA.y - _vectorB.y);
@@ -64,6 +103,19 @@ TVector3& Subtract(const TVector3& _vectorA, const TVector3& _vectorB, TVector3&
 
 TVector3& ScaleVector(const TVector3& _vectorA, const float _scalar, TVector3& _resultant)
 {
+
+/*********************** *
+
+name of the function: ScaleVector - Scales two 3D Vectors
+
+@author: Lachlan Hope
+
+@parameter: Takes two 3D Vectors and a resultant vector, of TVector3 type defined by struct(s) in header file.
+
+@return: returns resultant of vector scaling, compared with supplied value.
+
+********************/
+
 	TVector3 calcResult;
 	calcResult.x = (_vectorA.x * _scalar);
 	calcResult.y = (_vectorA.y * _scalar);
@@ -87,6 +139,18 @@ TVector3& ScaleVector(const TVector3& _vectorA, const float _scalar, TVector3& _
 
 float Magnitude(const TVector3& _vectorA) {
 
+/*********************** *
+
+name of the function: Magnitude - Calculates magnitude of a 3D Vectors
+
+@author: Lachlan Hope
+
+@parameter: Takes a 3D Vector of TVector3 type defined by struct(s) in header file.
+
+@return: returns vector magnitude.
+
+********************/
+
 	cout << "\nThis function computes the magnitude of the vector passed to the function." << endl;
 	cout << "\nVector Supplied: [" << _vectorA.x << ", " << _vectorA.y << ", " << _vectorA.z << "]" << endl;
 	
@@ -100,6 +164,18 @@ float Magnitude(const TVector3& _vectorA) {
 }
 
 float DotProduct(const TVector3& _vectorA, const TVector3& _vectorB) {
+
+	/*********************** *
+
+	name of the function: DotProduct - Calculates DotProduct of two 3D Vectors
+
+	@author: Lachlan Hope
+
+	@parameter: Takes two 3D Vectors of TVector3 type defined by struct(s) in header file.
+
+	@return: returns vector DotProduct.
+
+	********************/
 	
 	cout << "\nThis function computes the Dot Product of two vectors passed to the function." << endl;
 	float dotProduct = ((_vectorA.x * _vectorB.x) + (_vectorA.y * _vectorB.y) + (_vectorA.z * _vectorB.z));
@@ -110,6 +186,18 @@ float DotProduct(const TVector3& _vectorA, const TVector3& _vectorB) {
 }
 
 TVector3& CrossProduct(const TVector3& _vectorA, const TVector3& _vectorB, TVector3& _resultant) {
+
+	/*********************** *
+
+	name of the function: CrossProduct - Calculates CrossProduct of two 3D Vectors
+
+	@author: Lachlan Hope
+
+	@parameter: Takes two 3D Vectors and a third resultant vector of TVector3 type defined by struct(s) in header file.
+
+	@return: returns vector CrossProduct, compared with supplied value.
+
+	********************/
 
 	cout << "\nThis function computes the Cross Product of two vectors passed to the function." << endl;
 
@@ -132,6 +220,18 @@ TVector3& CrossProduct(const TVector3& _vectorA, const TVector3& _vectorB, TVect
 }
 
 TVector3& Normalise(const TVector3& _vectorA, TVector3& _resultant) {
+
+	/************************
+
+	name of the function: Normalise - Normalises a supplied 3D vector
+
+	@author: Lachlan Hope
+
+	@parameter: Takes a 3D Vector and a resultant vector of TVector3 type defined by struct(s) in header file.
+
+	@return: returns normalised Vector, compared with supplied result.
+
+	********************/
 
 	cout << "\nThis function computes the Normalisation (Unit vector) of the vector passed to the function." << endl;
 
@@ -156,6 +256,18 @@ TVector3& Normalise(const TVector3& _vectorA, TVector3& _resultant) {
 }
 
 TVector3& Projection(const TVector3& _vectorA, const TVector3& _vectorB, TVector3& _resultant) {
+	
+	/************************
+
+	name of the function: Projection - Caluclates projection of two supplied 3D vectors
+
+	@author: Lachlan Hope
+
+	@parameter: Takes two 3D Vectors and a resultant vector of TVector3 type defined by struct(s) in header file.
+
+	@return: returns projection of Vector A onto B, compared with supplied result.
+
+	********************/
 
 	TVector3 projectionVec;
 	float vecAMagnitude = sqrt(pow(_vectorA.x, 2) + pow(_vectorA.y, 2) + pow(_vectorA.z, 2));
@@ -182,6 +294,17 @@ TVector3& Projection(const TVector3& _vectorA, const TVector3& _vectorB, TVector
 }
 
 float ComputeAngleBetween(const TVector2& _vectorA, const TVector2& _vectorB) {
+	/************************
+
+	name of the function: ComputeAngleBetweeen - Caluclates angle between two supplied 3D vectors
+
+	@author: Lachlan Hope
+
+	@parameter: Takes two 3D Vectors and calculates the angle between them.
+
+	@return: returns angle between vectors as float.
+
+	********************/
 
 	cout << "\nThis function computes the angle between two 2D vectors passed to the function." << endl;
 
@@ -195,21 +318,20 @@ float ComputeAngleBetween(const TVector2& _vectorA, const TVector2& _vectorB) {
 	return angleBetween;
 }
 
-float ComputeAngleBetween(const TVector3& _vectorA, const TVector3& _vectorB) {
-
-	cout << "\nThis function computes the angle between two 3D vectors passed to the function." << endl;
-
-	float angleBetweenDotProduct = ((_vectorA.x * _vectorB.x) + (_vectorA.y * _vectorB.y)+ (_vectorA.z * _vectorB.z));
-	float angleBetweenMagnitudeA = sqrt((pow(_vectorA.x, 2) + pow(_vectorA.y, 2) + pow(_vectorA.z, 2)));
-	float angleBetweenMagnitudeB = sqrt((pow(_vectorB.x, 2) + pow(_vectorB.y, 2) + pow(_vectorB.z, 2)));
-
-	float angleBetween = (angleBetweenDotProduct / (angleBetweenMagnitudeA * angleBetweenMagnitudeB));
-	cout << "\nThe calculated result was:" << angleBetween << endl;
-
-	return angleBetween;
-}
 
 float ComputeDistancePointToLine(const T3DLine& _line, const TVector3& _point) {
+
+	/************************
+
+	name of the function: ComputeDistancePointToLine - Caluclates distance from a given 3D point to a given line
+
+	@author: Lachlan Hope
+
+	@parameter: Takes a 3D Vectors of TVector3 type and a 3D Line of T3DLine type defined by struct(s) in header file.
+
+	@return: returns distance as float.
+
+	********************/
 
 	cout << "\nThis function computes the distance between a point and a line." << endl;
 
@@ -234,6 +356,18 @@ float ComputeDistancePointToLine(const T3DLine& _line, const TVector3& _point) {
 }
 
 float ComputeDistancePointToPlane(const TPlane& _plane, const TVector3& _point) {
+
+	/************************
+
+	name of the function: ComputeDistancePointToPlane - Caluclates distance from a given 3D point to a given 3D plane
+
+	@author: Lachlan Hope
+
+	@parameter: Takes a 3D Vectors of TVector3 type and a 3D Plane of TPlane type defined by struct(s) in header file.
+
+	@return: returns distance as float.
+
+	********************/
 
 	cout << "\nThis function computes the shortest distance between a point and a plane." << endl;
 
@@ -262,6 +396,18 @@ float ComputeDistancePointToPlane(const TPlane& _plane, const TVector3& _point) 
 
 float ComputeDistanceCircleToCircle(const TCircle& _circle1, const TCircle& _circle2) {
 
+	/************************
+
+	name of the function: ComputeDistanceCircleToCircle - Caluclates distance from the edge of a supplied circle to a second supplied circle
+
+	@author: Lachlan Hope
+
+	@parameter: Takes two circles of TCircle type defined by struct(s) in header file.
+
+	@return: returns distance as float.
+
+	********************/
+
 	cout << "\nThis function computes the shortest distance between the edges of two circles." << endl;
 	
 	//calculate distance between centre of circles, then subctract the radius
@@ -273,6 +419,18 @@ float ComputeDistanceCircleToCircle(const TCircle& _circle1, const TCircle& _cir
 }
 
 float ComputeDistanceCircleToTriangle(const TCircle& _circle, const TTriangle2& _triangle) {
+
+	/************************
+
+	name of the function: ComputeDistanceCircleToTriangle - Caluclates distance from the center of a supplied circle to center of supplied triangle
+
+	@author: Lachlan Hope
+
+	@parameter: Takes a circles of TCircle type and a triangle of TTriangle2 defined by struct(s) in header file.
+
+	@return: returns distance as float.
+
+	********************/
 
 	cout << "\nThis function computes the distance between the centre of a given circle and a triangle." << endl;
 	//define variables
@@ -290,6 +448,18 @@ float ComputeDistanceCircleToTriangle(const TCircle& _circle, const TTriangle2& 
 }
 
 TVector3& FindTriangleNormal(const TTriangle3& _triangle, TVector3& _normal) {
+
+	/************************
+
+	name of the function: FindTriangleNormal - Caluclates normal vector of supplied 3D triangle
+
+	@author: Lachlan Hope
+
+	@parameter: Takes a triangle of TTriangle3 defined by struct(s) in header file.
+
+	@return: returns normalized vector as TVector3 type.
+
+	********************/
 	
 	cout << "\nThis function computes the normal vector of a given triangle." << endl;
 

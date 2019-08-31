@@ -195,19 +195,7 @@ void testSuite::runTestSuite()
 
 	cout << "\nTest Complete" << endl;
 	cout << "\nCurrent Tests Run: " << testCount << endl;
-
-	ComputeAngleBetween(testVector3a, testVector3b);
-	testCount += 1;
-
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
-
-	ComputeDistancePointToLine(testLineA, testVector3a);
-	testCount += 1;
-
-	cout << "Test Complete" << endl;
-	cout << "Current Tests Run: " << testCount << endl;
-
+		
 	ComputeDistancePointToPlane(testPlaneA, testVector3a);
 	testCount += 1;
 
